@@ -26,7 +26,7 @@ public class BoardServiceImpl implements IBoardService {
         board.getStack().addAll(deckCopy);
 
     }
-// привіт світ
+    // привіт світ
     @Override
     public void shuffleDeck(List<Card> deck) {
         Collections.shuffle(deck);
@@ -93,9 +93,9 @@ public class BoardServiceImpl implements IBoardService {
 
             }
             if(playercard.getValue() > dealercard.getValue()){
-               board.setTurn(false);
+                board.setTurn(false);
             }else{
-               board.setTurn(true);
+                board.setTurn(true);
             }
 
         }
@@ -120,7 +120,7 @@ public class BoardServiceImpl implements IBoardService {
         deckCopy.addAll(deck.getDeck());
         shuffleDeck(deckCopy);
         board.getStack().addAll(deckCopy);
-        }
+    }
 
     public void setMessage(String text){
         board.setMessage(text);

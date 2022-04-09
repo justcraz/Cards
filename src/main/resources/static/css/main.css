@@ -1,13 +1,14 @@
 img{
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
+    margin: 0 20px;
 }
 .deck{
     display: flex;
     align-items: center;
     position: relative;
-    width: 180px;
+    /*width: 180px;*/
+    right: 70px;
 
 }
 
@@ -24,7 +25,8 @@ img{
 .playerCards{
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
+    margin: 0 20px;
+    justify-content: center;
 }
 
 .dealerCards{
@@ -32,29 +34,38 @@ img{
     flex-direction: row;
     margin: 0 auto;
     padding-bottom: 50px;
+    justify-content: center;
 }
 
 button{
-    background-color: maroon;
+    background-color: green;
     width: 150px;
     height: 40px;
+    border-radius: 12px;
+    color: white;
 }
 a{
     color: white;
+    text-decoration: none;
 }
 
 .cardsNumb{
+    color: white;
     z-index: 1;
-    width: 50%;
-    margin: 0 auto;
+    /*width: 20%;*/
+    /*margin: 0 auto;*/
+    margin-left: 310px;
+    font-size: 20px;
+    font-family: Montserrat;
+    font-style: italic;
 }
 
-.playerCards button{
-    display: flex;
-    height: 180px;
-    margin: 0 auto;
-
-}
+/*.playerCards button{*/
+/*    display: flex;*/
+/*    height: 180px;*/
+/*    margin: 0 auto;*/
+/*    border-radius: 15px;*/
+/*}*/
 
 .dealermoves,.playerMoves{
     display: flex;
@@ -64,4 +75,37 @@ a{
 }
 .playerMoves{
     padding-bottom: 20px;
+}
+
+.text{
+    color: white;
+    font-family: "Montserrat";
+    font-style: italic;
+}
+
+.play{
+    color: white;
+    font-family: Montserrat;
+    font-style: italic;
+}
+
+.start{
+    color: white;
+    width: 210px;
+    height: 50px;
+    border: none;
+    font-size: 15px;
+    margin-top: 25%;
+    margin-left: 45%;
+    /*margin: 0 auto;*/
+    text-decoration: none;
+    display: inline-block;
+}
+
+body {
+    background: url(https://pl.sterlingcdn.com/wp-content/uploads/sites/3/2018/07/blackjack-classic-background.jpg) no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

@@ -30,7 +30,7 @@ public class BoardUIController {
         List<Card> playerCards = new ArrayList<>();
         List<Card> dealerCards = new ArrayList<>();
         for (int i = 1; i < boardService.getStack().size(); i++) {
-                deck2.add(new Card(i,"/image/back.png",i*3));
+            deck2.add(new Card(i,"/image/back.png",i*3));
         }
 
         String turnAsString = (boardService.getTurn())? "player move" : "dealer move";
@@ -46,33 +46,11 @@ public class BoardUIController {
         return "board";
     }
 
-    @GetMapping("/give/cards/to/player")
+    @GetMapping("/give/cards")
     String givePlayerCards(Model model){
         List<Card> deck = boardService.getStack();
         List<Card> deck2 = new ArrayList<>();
         gameService.giveCards();
-        List<Card> playerCards = boardService.getPlayerCards();
-        List<Card> dealerCards = boardService.getDealerCards();
-        for (int i = 1; i < boardService.getStack().size(); i++) {
-            deck2.add(new Card(i,"/image/back.png",i*3));
-        }
-        String turnAsString = (boardService.getTurn())? "player move" : "dealer move";
-        model.addAttribute("turn",turnAsString);
-        model.addAttribute("playerMoves",boardService.getPlayerMoves());
-        model.addAttribute("dealerMoves",boardService.getDealerMoves());
-        model.addAttribute("deck",deck2);
-        model.addAttribute("trumpCard",boardService.getTrumpCard());
-        model.addAttribute("playerCards",playerCards);
-        model.addAttribute("dealerCards",dealerCards);
-        model.addAttribute("cardsSize",boardService.getStack().size());
-        model.addAttribute("finalMessage",boardService.getMessage());
-        return "board";
-    }
-
-    @GetMapping("/give/cards/to/dealer")
-    String giveDealerCards(Model model){
-        List<Card> deck = boardService.getStack();
-        List<Card> deck2 = new ArrayList<>();
         gameService.giveCardsToDealer();
         List<Card> playerCards = boardService.getPlayerCards();
         List<Card> dealerCards = boardService.getDealerCards();
@@ -91,6 +69,28 @@ public class BoardUIController {
         model.addAttribute("finalMessage",boardService.getMessage());
         return "board";
     }
+
+//    @GetMapping("/give/cards/to/dealer")
+//    String giveDealerCards(Model model){
+//        List<Card> deck = boardService.getStack();
+//        List<Card> deck2 = new ArrayList<>();
+//        List<Card> playerCards = boardService.getPlayerCards();
+//        List<Card> dealerCards = boardService.getDealerCards();
+//        for (int i = 1; i < boardService.getStack().size(); i++) {
+//            deck2.add(new Card(i,"/image/back.png",i*3));
+//        }
+//        String turnAsString = (boardService.getTurn())? "player move" : "dealer move";
+//        model.addAttribute("turn",turnAsString);
+//        model.addAttribute("playerMoves",boardService.getPlayerMoves());
+//        model.addAttribute("dealerMoves",boardService.getDealerMoves());
+//        model.addAttribute("deck",deck2);
+//        model.addAttribute("trumpCard",boardService.getTrumpCard());
+//        model.addAttribute("playerCards",playerCards);
+//        model.addAttribute("dealerCards",dealerCards);
+//        model.addAttribute("cardsSize",boardService.getStack().size());
+//        model.addAttribute("finalMessage",boardService.getMessage());
+//        return "board";
+//    }
 
     @GetMapping("/shuffle")
     String getShuffle(Model model){
